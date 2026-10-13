@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  linear:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m unittest discover -s actions/linear -p 'test_*.py' -v
+
+      # The action itself, the way a caller uses it: linear.py on PATH and
+      # LINEAR_PY exported. No key here, so `comment` must warn and exit 0.
+      - uses: ./actions/linear
+      - run: |
+          test "$(echo 'matheus/dtech-13-x' | linear.py extract --branch)" = "DTECH-13"
+          test -x "$LINEAR_PY"
+          linear.py comment DTECH-13 "never sent"

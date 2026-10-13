@@ -1,0 +1,16 @@
+name: Linear helper
+description: >-
+  Puts linear.py on PATH (extract ticket IDs from branch/title/body, comment on
+  a Linear issue) and exports LINEAR_PY with its absolute path.
+
+# A setup action rather than one step per command: callers pipe `extract`
+# through shell fallbacks (branch → PR body → title) and import the module from
+# inline Python, which a one-shot action cannot express. LINEAR_API_KEY stays a
+# per-step env on the caller side, so it only reaches the steps that need it.
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        echo "$GITHUB_ACTION_PATH" >> "$GITHUB_PATH"
+        echo "LINEAR_PY=$GITHUB_ACTION_PATH/linear.py" >> "$GITHUB_ENV"
