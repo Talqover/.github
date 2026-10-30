@@ -27,3 +27,7 @@ Tests: `python -m unittest discover -s actions/linear -p 'test_*.py'` (also in C
 ## `docs/linear-ticket-comments.md`
 
 Canonical text of the convention "work tied to a ticket leaves a comment on the Linear issue with what was measured, decided and not verified", with the blocks each repo copies into its `CLAUDE.md` / `AGENTS.md`.
+
+## `docs/linear-issue-minimum.md`
+
+Canonical text of the convention "every Linear issue carries a short floor — current state with evidence, desired state, verifiable done criterion — and is searched for before it is opened", with the blocks each repo copies into its `CLAUDE.md` / `AGENTS.md`. It lives here and not only in the Linear templates because an issue created through the MCP with a `description` drops the template body.
