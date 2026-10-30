@@ -31,3 +31,7 @@ Canonical text of the convention "work tied to a ticket leaves a comment on the 
 ## `docs/linear-issue-minimum.md`
 
 Canonical text of the convention "every Linear issue carries a short floor — current state with evidence, desired state, verifiable done criterion — and is searched for before it is opened", with the blocks each repo copies into its `CLAUDE.md` / `AGENTS.md`. It lives here and not only in the Linear templates because an issue created through the MCP with a `description` drops the template body.
+
+## `docs/linear-issue-pickup.md`
+
+The reader side of the issue floor: what whoever executes a Linear issue does before starting, generically and per issue type (Bug, Tarefa técnica, Discovery, Entregável), plus the short text pasted into the Linear templates through the UI. Same `CLAUDE.md` / `AGENTS.md` blocks pattern.
